@@ -1,0 +1,4 @@
+index=* sourcetype=linux_secure "Server14"
+("new user:" OR "usermod" OR "gpasswd" OR "group 'sudo'")
+| table _time source _raw
+| sort 0 _time

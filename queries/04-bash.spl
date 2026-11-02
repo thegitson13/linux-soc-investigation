@@ -1,0 +1,3 @@
+index=* source="*exec-full.log" "type=EXECVE" "lab-script.sh"
+| table _time source _raw
+| sort 0 _time

@@ -1,0 +1,5 @@
+index=* source="*exec-full.log" "type="
+| rex field=_raw "msg=audit\((?<audit_id>[^)]+)\)"
+| stats min(_time) as _time values(_raw) as records by host source audit_id
+| where mvfind(records, "lab-script[.]sh") >= 0
+| sort 0 _time

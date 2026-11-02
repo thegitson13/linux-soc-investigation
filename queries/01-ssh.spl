@@ -1,0 +1,5 @@
+index=* sourcetype=linux_secure "Server14"
+("Failed password" OR "Accepted password" OR "Accepted publickey")
+| rex field=_raw "(?<result>Failed|Accepted) (?:password|publickey) for (?:invalid user )?(?<account>\S+) from (?<src_ip>\S+)"
+| table _time account src_ip result source _raw
+| sort 0 _time

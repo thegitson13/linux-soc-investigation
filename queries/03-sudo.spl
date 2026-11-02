@@ -1,0 +1,3 @@
+index=* sourcetype=linux_secure "Server14" "sudo" "COMMAND="
+| table _time source _raw
+| sort 0 _time
